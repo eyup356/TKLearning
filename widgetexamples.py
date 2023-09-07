@@ -45,4 +45,26 @@ def checkbutton_selected():
 check_state=IntVar()
 my_checkbutton = Checkbutton(text="check", variable=check_state, command=checkbutton_selected)
 my_checkbutton.pack()
+
+#radio button
+def radio_selected():
+    print(radio_check_state.get())
+radio_check_state= IntVar()
+my_radiobutton = Radiobutton(text="1. option", value=10, variable=radio_check_state, command=radio_selected)
+my_radiobutton2 = Radiobutton(text="1. option", value=20, variable=radio_check_state, command=radio_selected)
+my_radiobutton.pack()
+my_radiobutton2.pack()
+
+#listbox
+
+def listbox_selected(event):
+    print(my_listbox.get(my_listbox.curselection()))
+
+my_listbox= Listbox()
+name_list=["eyüp","abc","xd","xdfa"]
+for i in range(len(name_list)):
+    print(i)
+    my_listbox.insert(i,name_list[i])
+my_listbox.bind('<<ListboxSelect>>',listbox_selected)
+my_listbox.pack()
 window.mainloop()
